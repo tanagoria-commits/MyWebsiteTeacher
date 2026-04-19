@@ -1,638 +1,208 @@
 <!DOCTYPE html>
-<!-- saved from url=(0273)file:///C:/Users/%D0%9F%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C/Desktop/%D0%BA%D1%83%D1%80%D1%81%20%D0%98%D0%98/%D0%B2%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B0%20%D1%80%D0%B5%D0%BF%D0%B5%D1%82%D0%B8%D1%82%D0%BE%D1%80%D0%B0/%D1%81%D0%B0%D0%B9%D1%82.html -->
-<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Английский с Татьяной</title>
-<link href="./Английский с Татьяной_files/css2" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400&family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 <style>
   :root {
-    --lime: #FFE500;
-    --coral: #FF5C5C;
-    --sky: #FF9EF5;
-    --navy: #1A0035;
-    --cream: #FFF0FB;
-    --yellow: #FFD700;
+    --purple: #7B2FBE; --purple-dark: #4A0080; --purple-light: #A855F7;
+    --pink: #EC4899; --pink-light: #F472B6; --orange: #F97316; --orange-light: #FB923C;
+    --cream: #FFF0FB; --navy: #1A0035; --white: #ffffff;
   }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
+  html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+  #about, #courses, #pricing, #blog, #bonuses { scroll-margin-top: 100px; }
   body {
-    font-family: 'DM Sans', sans-serif;
-    background: linear-gradient(135deg, #4A0080 0%, #8B00CC 18%, #C000FF 32%, #FFD700 52%, #FF3A8C 70%, #A600E8 85%, #2D0060 100%);
-    background-attachment: fixed;
-    color: var(--navy);
-    overflow-x: hidden;
-    cursor: none;
+    font-family: 'Inter Tight', sans-serif; font-weight: 600; letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 25%, var(--purple-light) 45%, var(--pink) 60%, var(--pink-light) 72%, var(--orange) 85%, var(--orange-light) 100%);
+    background-attachment: fixed; color: var(--navy); overflow-x: hidden; cursor: none;
   }
-
-  /* Custom cursor */
-  .cursor {
-    width: 20px; height: 20px;
-    background: var(--coral);
-    border-radius: 50%;
-    position: fixed;
-    top: 0; left: 0;
-    pointer-events: none;
-    z-index: 9999;
-    mix-blend-mode: multiply;
-    transition: transform 0.15s ease, background 0.2s;
-  }
-  .cursor.hover { transform: scale(2.5); background: var(--lime); }
-
-  /* ── HEADER ── */
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.4rem 3rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 2px solid rgba(255,255,255,0.3);
-  }
-
-  .logo {
-    font-family: 'Fraunces', serif;
-    font-size: 1.6rem;
-    font-weight: 900;
-    letter-spacing: -1px;
-    color: #fff;
-  }
-  .logo span { color: var(--yellow); }
-
-  nav a {
-    text-decoration: none;
-    color: rgba(255,255,255,0.9);
-    font-weight: 600;
-    margin-left: 2rem;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: color 0.2s;
-  }
+  .cursor { width: 20px; height: 20px; background: var(--pink); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; mix-blend-mode: multiply; transition: transform 0.15s ease, background 0.2s; }
+  .cursor.hover { transform: scale(2.5); background: var(--orange); }
+  header { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 3rem; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(26, 0, 53, 0.9); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.1); transition: all 0.3s ease; }
+  .logo { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 900; letter-spacing: -0.05em; color: #fff; text-decoration: none; }
+  .logo span { color: var(--orange); }
+  nav { display: flex; align-items: center; gap: 1.8rem; }
+  nav a { text-decoration: none; color: rgba(255,255,255,0.85); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: -0.01em; transition: color 0.2s, transform 0.2s; position: relative; }
+  nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: var(--orange); transition: width 0.3s; }
   nav a:hover { color: #fff; }
-
-  .nav-cta {
-    background: rgba(255,215,0,0.3);
-    color: #fff !important;
-    padding: 0.5rem 1.2rem;
-    border-radius: 50px;
-    border: 2px solid rgba(255,215,0,0.7) !important;
-    transition: background 0.2s, transform 0.15s !important;
-  }
-  .nav-cta:hover { background: rgba(255,215,0,0.55) !important; color: #fff !important; transform: scale(1.05) !important; }
-
-  /* ── HERO ── */
-  .hero {
-    min-height: 90vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-left {
-    padding: 5rem 3rem 5rem 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    z-index: 2;
-  }
-
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(255,215,0,0.3);
-    color: #fff;
-    font-weight: 700;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 0.4rem 1rem;
-    border-radius: 50px;
-    margin-bottom: 1.5rem;
-    width: fit-content;
-    border: 1.5px solid rgba(255,255,255,0.4);
-    animation: slideDown 0.6s ease both;
-  }
-
-  .hero h1 {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(3.5rem, 6vw, 5.5rem);
-    font-weight: 900;
-    line-height: 1.0;
-    letter-spacing: -2px;
-    margin-bottom: 1.5rem;
-    color: #fff;
-    animation: slideDown 0.7s 0.1s ease both;
-  }
-
-  .hero h1 .accent-coral { color: var(--yellow); }
-  .hero h1 .accent-sky { color: #E8AAFF; }
-
-  .hero p {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    max-width: 420px;
-    color: rgba(255,255,255,0.85);
-    margin-bottom: 2.5rem;
-    animation: slideDown 0.7s 0.2s ease both;
-  }
-
-  .hero-buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    animation: slideDown 0.7s 0.3s ease both;
-  }
-
-  .btn-primary {
-    background: #fff;
-    color: #7B2FBE;
-    padding: 0.9rem 2.2rem;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 1rem;
-    text-decoration: none;
-    border: 2.5px solid rgba(255,255,255,0.8);
-    box-shadow: 4px 4px 0 rgba(0,0,0,0.25);
-    transition: transform 0.15s, box-shadow 0.15s;
-    display: inline-block;
-  }
+  nav a:hover::after { width: 100%; }
+  .nav-cta { background: var(--orange); color: var(--navy) !important; padding: 0.55rem 1.4rem; border-radius: 50px; font-weight: 700 !important; border: 2px solid var(--orange) !important; transition: all 0.2s !important; box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3); letter-spacing: -0.02em; }
+  .nav-cta:hover { background: transparent !important; color: #fff !important; border-color: #fff !important; transform: translateY(-2px); }
+  .nav-cta::after { display: none; }
+  
+  /* HERO */
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; gap: 0; position: relative; overflow: hidden; padding-top: 70px; }
+  .hero-left { padding: 4rem 3rem 4rem 3rem; display: flex; flex-direction: column; justify-content: center; z-index: 2; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(249,115,22,0.2); color: #fff; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.4rem 1rem; border-radius: 50px; margin-bottom: 1.5rem; width: fit-content; border: 1px solid rgba(255,255,255,0.3); animation: slideDown 0.6s ease both; }
+  .hero h1 { font-family: 'Fraunces', serif; font-size: clamp(3rem, 5vw, 4.5rem); font-weight: 900; line-height: 1.05; letter-spacing: -0.06em; margin-bottom: 1.5rem; color: #fff; animation: slideDown 0.7s 0.1s ease both; }
+  .hero h1 .accent-coral { color: var(--orange); }
+  .hero h1 .accent-sky { color: var(--pink-light); }
+  .hero p { font-size: 1.05rem; line-height: 1.6; max-width: 420px; color: rgba(255,255,255,0.85); margin-bottom: 2.5rem; animation: slideDown 0.7s 0.2s ease both; letter-spacing: -0.02em; }
+  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; animation: slideDown 0.7s 0.3s ease both; }
+  .btn-primary { background: #fff; color: var(--purple); padding: 0.85rem 2rem; border-radius: 50px; font-weight: 700; font-size: 0.95rem; text-decoration: none; border: 2.5px solid rgba(255,255,255,0.8); box-shadow: 4px 4px 0 rgba(0,0,0,0.25); transition: transform 0.15s, box-shadow 0.15s; display: inline-block; letter-spacing: -0.02em; }
   .btn-primary:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 rgba(0,0,0,0.3); }
-
-  .btn-secondary {
-    background: rgba(255,255,255,0.15);
-    color: #fff;
-    padding: 0.9rem 2.2rem;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 1rem;
-    text-decoration: none;
-    border: 2.5px solid rgba(255,255,255,0.6);
-    box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
-    transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
-    display: inline-block;
-  }
+  .btn-secondary { background: rgba(255,255,255,0.15); color: #fff; padding: 0.85rem 2rem; border-radius: 50px; font-weight: 700; font-size: 0.95rem; text-decoration: none; border: 2.5px solid rgba(255,255,255,0.6); box-shadow: 4px 4px 0 rgba(0,0,0,0.2); transition: transform 0.15s, box-shadow 0.15s, background 0.15s; display: inline-block; letter-spacing: -0.02em; }
   .btn-secondary:hover { background: rgba(255,255,255,0.3); transform: translate(-2px,-2px); box-shadow: 6px 6px 0 rgba(0,0,0,0.25); }
-
-  .hero-right {
-    position: relative;
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(8px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    animation: fadeIn 1s 0.2s ease both;
-  }
-
-  .hero-right::before {
-    content: '';
-    position: absolute;
-    width: 420px; height: 420px;
-    background: rgba(255,255,255,0.18);
-    border-radius: 50%;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-  }
-
-  .hero-photo {
-    width: 340px;
-    height: 420px;
-    object-fit: cover;
-    border-radius: 200px 200px 0 0;
-    position: relative;
-    z-index: 1;
-    border: 4px solid var(--navy);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background: linear-gradient(160deg, #FFD6D6, #ffe8b0);
-  }
-
-  .hero-photo-placeholder {
-    font-size: 10rem;
-    line-height: 1;
-    margin-top: 3rem;
-    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.15));
-  }
-
-  .floating-tag {
-    position: absolute;
-    background: rgba(255,255,255,0.9);
-    border: none;
-    border-radius: 14px;
-    padding: 0.6rem 1rem;
-    font-weight: 700;
-    font-size: 0.85rem;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    z-index: 3;
-    animation: float 3s ease-in-out infinite;
-    color: var(--navy);
-  }
+  .hero-right { position: relative; background: rgba(255,255,255,0.05); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; overflow: hidden; animation: fadeIn 1s 0.2s ease both; }
+  .hero-right::before { content: ''; position: absolute; width: 420px; height: 420px; background: rgba(255,255,255,0.1); border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0; }
+  .hero-photo { width: 340px; height: 420px; object-fit: cover; border-radius: 200px 200px 0 0; position: relative; z-index: 1; border: 4px solid var(--navy); display: flex; align-items: center; justify-content: center; overflow: hidden; background: linear-gradient(160deg, var(--pink-light), var(--orange-light)); }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .floating-tag { position: absolute; background: rgba(255,255,255,0.95); border: none; border-radius: 14px; padding: 0.55rem 0.9rem; font-weight: 700; font-size: 0.8rem; box-shadow: 0 4px 20px rgba(0,0,0,0.2); z-index: 3; animation: float 3s ease-in-out infinite; color: var(--navy); letter-spacing: -0.02em; }
   .tag1 { top: 18%; left: 5%; animation-delay: 0s; }
-  .tag2 { bottom: 20%; left: 3%; animation-delay: 0.8s; background: rgba(255,220,0,0.95); }
-  .tag3 { top: 25%; right: 5%; animation-delay: 1.4s; background: rgba(255,200,250,0.95); }
-
-  /* ── STATS ── */
-  .stats {
-    background: rgba(80,0,140,0.5);
-    padding: 3rem;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.2);
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-  }
-
-  .stat-item {
-    text-align: center;
-    animation: slideDown 0.5s ease both;
-  }
-
-  .stat-num {
-    font-family: 'Fraunces', serif;
-    font-size: 3.5rem;
-    font-weight: 900;
-    color: var(--lime);
-    line-height: 1;
-  }
-
-  .stat-label {
-    color: rgba(255,255,255,0.7);
-    font-size: 0.9rem;
-    margin-top: 0.3rem;
-  }
-
-  /* ── SERVICES ── */
-  .section {
-    padding: 6rem 3rem;
-    background: rgba(100,0,180,0.25);
-    backdrop-filter: blur(4px);
-    position: relative;
-    z-index: 1;
-  }
-
-  .section-header {
-    margin-bottom: 3.5rem;
-  }
-
-  .section-tag {
-    display: inline-block;
-    background: rgba(255,255,255,0.3);
-    color: #fff;
-    font-weight: 700;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    padding: 0.35rem 0.9rem;
-    border-radius: 50px;
-    margin-bottom: 1rem;
-    border: 1.5px solid rgba(255,255,255,0.5);
-  }
-
-  .section-title {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(2.2rem, 4vw, 3.2rem);
-    font-weight: 900;
-    letter-spacing: -1.5px;
-    line-height: 1.1;
-    color: #fff;
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .service-card {
-    border: 2px solid rgba(255,255,255,0.4);
-    border-radius: 20px;
-    padding: 2rem;
-    background: rgba(255,255,255,0.18);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-    transition: transform 0.2s, box-shadow 0.2s;
-    position: relative;
-    overflow: hidden;
-    color: #fff;
-  }
-  .service-card:hover { transform: translate(-3px,-3px); box-shadow: 0 16px 40px rgba(0,0,0,0.25); }
-
-  .service-card.featured {
-    background: rgba(255,210,0,0.88);
-    color: var(--navy);
-    border-color: rgba(255,230,0,0.6);
-  }
-  .service-card.featured .service-desc { color: rgba(42,0,48,0.8); }
-
-  .service-icon {
-    font-size: 2.8rem;
-    margin-bottom: 1.2rem;
-    display: block;
-  }
-
-  .service-card h3 {
-    font-family: 'Fraunces', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.7rem;
-    color: #fff;
-  }
-
-  .service-card.featured h3 { color: var(--navy); }
-
-  .service-desc {
-    color: rgba(255,255,255,0.85);
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-
-  .service-price {
-    margin-top: 1.5rem;
-    font-family: 'Fraunces', serif;
-    font-size: 1.8rem;
-    font-weight: 900;
-    color: var(--yellow);
-  }
-
-  .service-card.featured .service-price { color: var(--navy); }
-
-  .service-price span {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 400;
-    opacity: 0.7;
-  }
-
-  /* ── WHY ME ── */
-  .why-section {
-    padding: 6rem 3rem;
-    background: rgba(60,0,120,0.45);
-    color: var(--cream);
-  }
-
+  .tag2 { bottom: 20%; left: 3%; animation-delay: 0.8s; background: rgba(249,115,22,0.95); }
+  .tag3 { top: 25%; right: 5%; animation-delay: 1.4s; background: rgba(244,114,182,0.95); }
+  
+  /* STATS */
+  .stats { background: rgba(80,0,140,0.6); padding: 2.5rem 3rem; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem; border-top: 1px solid rgba(255,255,255,0.2); border-bottom: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(5px); }
+  .stat-item { text-align: center; animation: slideDown 0.5s ease both; }
+  .stat-num { font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 900; color: var(--orange); line-height: 1; letter-spacing: -0.04em; }
+  .stat-label { color: rgba(255,255,255,0.7); font-size: 0.85rem; margin-top: 0.3rem; letter-spacing: -0.02em; }
+  
+  /* ABOUT */
+  .why-section { padding: 5rem 3rem; background: rgba(60,0,120,0.45); color: var(--cream); }
   .why-section .section-title { color: #fff; }
-
-  .why-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-    margin-top: 3rem;
-  }
-
-  .why-card {
-    border: 2px solid rgba(255,255,255,0.15);
-    border-radius: 16px;
-    padding: 1.8rem;
-    background: rgba(255,255,255,0.05);
-    transition: background 0.2s, border-color 0.2s, transform 0.2s;
-  }
-  .why-card:hover {
-    background: rgba(200,244,0,0.1);
-    border-color: var(--lime);
-    transform: translateY(-4px);
-  }
-
-  .why-num {
-    font-family: 'Fraunces', serif;
-    font-size: 3rem;
-    font-weight: 900;
-    color: var(--lime);
-    line-height: 1;
-    margin-bottom: 0.8rem;
-  }
-
-  .why-card h3 {
-    font-weight: 700;
-    font-size: 1.05rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .why-card p { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.6; }
-
-  /* ── TESTIMONIALS ── */
-  .testimonials {
-    padding: 6rem 3rem;
-    background: rgba(180,120,0,0.25);
-    backdrop-filter: blur(8px);
-  }
-
+  
+  /* BLOG */
+  #blog { background: rgba(80, 0, 140, 0.3); padding: 5rem 3rem; }
+  .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; max-width: 1200px; margin: 2.5rem auto 0; }
+  .blog-card { background: rgba(255,255,255,0.92); border-radius: 20px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.2); transition: transform 0.2s, box-shadow 0.2s; }
+  .blog-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
+  .blog-image { height: 180px; background: linear-gradient(135deg, var(--purple), var(--pink)); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; }
+  .blog-content { padding: 1.5rem; }
+  .blog-tag { display: inline-block; background: rgba(249,115,22,0.15); color: var(--orange); font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.3rem 0.8rem; border-radius: 50px; margin-bottom: 0.8rem; }
+  .blog-title { font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; letter-spacing: -0.03em; }
+  .blog-excerpt { color: #555; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem; }
+  .blog-link { color: var(--purple); font-weight: 700; font-size: 0.9rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem; transition: gap 0.2s; }
+  .blog-link:hover { gap: 0.6rem; }
+  
+  /* TESTIMONIALS */
+  .testimonials { padding: 5rem 3rem; background: rgba(180,120,0,0.25); backdrop-filter: blur(8px); }
   .testimonials .section-title { color: #fff; }
-
-  .reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-top: 3rem;
-  }
-
-  .review-card {
-    background: rgba(255,255,255,0.92);
-    border: none;
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-    transition: transform 0.2s;
-  }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; max-width: 1200px; margin: 2.5rem auto 0; }
+  .review-card { background: rgba(255,255,255,0.92); border: none; border-radius: 20px; padding: 1.8rem; box-shadow: 0 8px 32px rgba(0,0,0,0.2); transition: transform 0.2s; }
   .review-card:hover { transform: translate(-2px,-4px); }
-
-  .review-stars { font-size: 1.2rem; margin-bottom: 1rem; }
-
-  .review-text {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: #333;
-    margin-bottom: 1.5rem;
-    font-style: italic;
-  }
-
-  .review-author {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-
-  .author-avatar {
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    border: 2px solid var(--navy);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    background: var(--sky);
-  }
-
-  .author-name { font-weight: 700; font-size: 0.9rem; }
-  .author-sub { font-size: 0.8rem; color: #888; }
-
-  /* ── CONTACT ── */
-  .contact-section {
-    padding: 6rem 3rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    background: rgba(80,0,160,0.35);
-  }
-
-  .contact-section::before {
-    content: 'ENGLISH';
-    position: absolute;
-    font-family: 'Fraunces', serif;
-    font-size: 18vw;
-    font-weight: 900;
-    color: rgba(0,0,0,0.03);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    white-space: nowrap;
-    pointer-events: none;
-    letter-spacing: -5px;
-  }
-
-  .contact-section .section-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    margin-bottom: 1rem;
-  }
-
-  .contact-sub {
-    font-size: 1.1rem;
-    color: rgba(255,255,255,0.8);
-    margin-bottom: 3rem;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.2rem;
-    flex-wrap: wrap;
-  }
-
-  .contact-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.9rem 2rem;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.95rem;
-    text-decoration: none;
-    border: 2.5px solid var(--navy);
-    box-shadow: 4px 4px 0 var(--navy);
-    transition: transform 0.15s, box-shadow 0.15s;
-    color: var(--navy);
-  }
+  .review-stars { font-size: 1.1rem; margin-bottom: 0.9rem; }
+  .review-text { font-size: 0.9rem; line-height: 1.6; color: #333; margin-bottom: 1.3rem; font-style: italic; letter-spacing: -0.02em; }
+  .review-author { display: flex; align-items: center; gap: 0.8rem; }
+  .author-avatar { width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--navy); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; background: var(--pink-light); }
+  .author-name { font-weight: 700; font-size: 0.85rem; color: var(--navy); letter-spacing: -0.02em; }
+  .author-sub { font-size: 0.75rem; color: #666; letter-spacing: -0.02em; }
+  
+  /* CONTACT */
+  .contact-section { padding: 5rem 3rem; text-align: center; position: relative; overflow: hidden; background: rgba(80,0,160,0.35); }
+  .contact-section::before { content: 'ENGLISH'; position: absolute; font-family: 'Fraunces', serif; font-size: 15vw; font-weight: 900; color: rgba(0,0,0,0.03); top: 50%; left: 50%; transform: translate(-50%,-50%); white-space: nowrap; pointer-events: none; letter-spacing: -0.1em; }
+  .contact-section .section-title { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 1rem; color: #fff; letter-spacing: -0.05em; }
+  .contact-sub { font-size: 1rem; color: rgba(255,255,255,0.8); margin-bottom: 2.5rem; max-width: 500px; margin-left: auto; margin-right: auto; letter-spacing: -0.02em; }
+  .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+  .contact-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.8rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem; text-decoration: none; border: 2.5px solid var(--navy); box-shadow: 4px 4px 0 var(--navy); transition: transform 0.15s, box-shadow 0.15s; color: var(--navy); background: #fff; letter-spacing: -0.02em; }
   .contact-link:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--navy); }
-
-  .contact-link.tg { background: #29B6F6; color: #fff; border-color: var(--navy); }
-  .contact-link.wa { background: #25D366; color: #fff; }
-  .contact-link.phone { background: var(--coral); color: #fff; }
-
-  /* ── FOOTER ── */
-  footer {
-    background: rgba(30,0,70,0.7);
-    color: rgba(255,255,255,0.5);
-    padding: 2rem 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    font-size: 0.85rem;
-  }
-
+  .contact-link.tg { background: #29B6F6; color: #fff; border-color: #1E88C7; box-shadow: 4px 4px 0 #1E88C7; }
+  .contact-link.tg:hover { box-shadow: 6px 6px 0 #1E88C7; }
+  .contact-link.wa { background: #25D366; color: #fff; border-color: #1DA851; box-shadow: 4px 4px 0 #1DA851; }
+  .contact-link.wa:hover { box-shadow: 6px 6px 0 #1DA851; }
+  .contact-link.phone { background: var(--pink); color: #fff; border-color: #DB2777; box-shadow: 4px 4px 0 #DB2777; }
+  .contact-link.phone:hover { box-shadow: 6px 6px 0 #DB2777; }
+  
+  /* FOOTER */
+  footer { background: rgba(30,0,70,0.9); color: rgba(255,255,255,0.5); padding: 1.8rem 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.1); letter-spacing: -0.02em; }
   footer .logo { color: #fff; }
-
-  /* ── ANIMATIONS ── */
-
-  @keyframes orbFloat1 {
-    0%, 100% { transform: translate(0,0) scale(1); }
-    50% { transform: translate(40px, 60px) scale(1.1); }
-  }
-  @keyframes orbFloat2 {
-    0%, 100% { transform: translate(0,0) scale(1); }
-    50% { transform: translate(-50px, 30px) scale(0.95); }
-  }
-  @keyframes orbFloat3 {
-    0%, 100% { transform: translate(0,0) scale(1); }
-    50% { transform: translate(30px, -40px) scale(1.05); }
-  }
-  @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-  }
-
-  /* Scroll reveal */
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
+  
+  /* ANIMATIONS */
+  @keyframes orbFloat1 { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(40px, 60px) scale(1.1); } }
+  @keyframes orbFloat2 { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-50px, 30px) scale(0.95); } }
+  @keyframes orbFloat3 { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(30px, -40px) scale(1.05); } }
+  @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+  @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+  @keyframes confetti { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(720deg); opacity: 0; } }
+  
+  /* PUZZLE STYLES */
+  .puzzle-container { max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.1); border-radius: 1.5rem; padding: 2rem; backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.2); position: relative; }
+  .puzzle-board { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); gap: 2px; width: 100%; aspect-ratio: 1; background: rgba(0,0,0,0.3); border-radius: 1rem; padding: 4px; margin-bottom: 1.5rem; position: relative; }
+  .puzzle-piece { width: 100%; height: 100%; background-size: 300% 300%; border-radius: 6px; cursor: grab; transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; display: block; }
+  .puzzle-piece:hover { transform: scale(1.02); box-shadow: 0 4px 12px rgba(249,115,22,0.4); z-index: 10; }
+  .puzzle-piece.dragging { cursor: grabbing; opacity: 0.8; transform: scale(1.1); z-index: 100; }
+  .puzzle-piece.correct { box-shadow: 0 0 15px rgba(100,255,100,0.6); border: 2px solid #4ade80; cursor: default; }
+  .puzzle-pieces-pool { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; min-height: 120px; background: rgba(255,255,255,0.1); border-radius: 1rem; padding: 1rem; }
+  .puzzle-piece-pool { width: 80px; height: 80px; background-size: 300% 300%; background-repeat: no-repeat; border-radius: 8px; cursor: grab; transition: transform 0.2s, box-shadow 0.2s; flex-shrink: 0; }
+  .puzzle-piece-pool:hover { transform: scale(1.05); box-shadow: 0 4px 12px rgba(249,115,22,0.4); }
+  .puzzle-piece-pool.dragging { cursor: grabbing; opacity: 0.8; }
+  .puzzle-drop-zone { background: rgba(255,255,255,0.08); border: 2px dashed rgba(255,255,255,0.3); border-radius: 6px; transition: background 0.2s, border-color 0.2s; position: relative; width: 100%; height: 100%; min-height: 80px; }
+  .puzzle-drop-zone.drag-over { background: rgba(249,115,22,0.2); border-color: var(--orange); }
+  .puzzle-drop-zone.filled { border-style: solid; border-color: #4ade80; background: transparent; }
+  .puzzle-drop-zone .puzzle-piece { width: 100% !important; height: 100% !important; position: absolute; top: 0; left: 0; }
+  .puzzle-instructions { text-align: center; color: rgba(255,255,255,0.8); margin-bottom: 1rem; font-size: 0.9rem; }
+  .puzzle-progress { display: flex; justify-content: center; gap: 8px; margin-bottom: 1rem; }
+  .progress-dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.3); transition: background 0.3s; }
+  .progress-dot.filled { background: var(--orange); }
+  .puzzle-complete-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); border-radius: 1.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.5s; z-index: 50; padding: 2rem; }
+  .puzzle-complete-overlay.visible { opacity: 1; pointer-events: auto; }
+  .puzzle-complete-icon { font-size: 4rem; margin-bottom: 1rem; animation: bounce 0.6s ease infinite; }
+  .puzzle-complete-title { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 900; color: var(--orange); margin-bottom: 0.5rem; text-align: center; }
+  .puzzle-complete-text { color: rgba(255,255,255,0.8); margin-bottom: 1.5rem; text-align: center; font-size: 0.95rem; }
+  .puzzle-claim-btn { background: linear-gradient(135deg, var(--orange) 0%, var(--pink) 100%); color: var(--navy); padding: 0.75rem 2rem; border-radius: 50px; font-weight: 700; border: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; font-size: 1rem; }
+  .puzzle-claim-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(249,115,22,0.4); }
+  @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  .confetti { position: fixed; width: 10px; height: 10px; top: -10px; animation: confetti 3s ease-out forwards; z-index: 9999; }
+  .bonus-revealed { display: none; animation: slideUp 0.6s ease; max-width: 500px; margin: 2rem auto 0; }
+  .bonus-revealed.visible { display: block; }
+  .bonus-revealed-card { background: white; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+  .bonus-revealed-image { height: 250px; width: 100%; background: #f1f5f9; display: flex; align-items: center; justify-content: center; }
+  .bonus-revealed-image img { width: 100%; height: 100%; object-fit: cover; }
+  .bonus-revealed-content { padding: 2rem; text-align: center; }
+  .bonus-revealed-badge { background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%); color: white; padding: 0.4rem 1rem; border-radius: 9999px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; margin-bottom: 1rem; }
+  .bonus-revealed-title { font-family: 'Fraunces', serif; font-size: 1.8rem; font-weight: 900; color: var(--navy); margin-bottom: 0.8rem; letter-spacing: -0.03em; }
+  .bonus-revealed-desc { color: #666; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
     header { padding: 1rem 1.5rem; }
+    nav { gap: 0.8rem; }
     nav a:not(.nav-cta) { display: none; }
-    .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-right { height: 380px; }
-    .hero-left { padding: 3rem 1.5rem; }
-    .section, .why-section, .testimonials, .contact-section { padding: 4rem 1.5rem; }
-    .stats { padding: 2.5rem 1.5rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 90px; }
+    .hero-right { height: 380px; order: -1; }
+    .hero-left { padding: 2.5rem 1.5rem; }
+    .why-section, .testimonials, .contact-section, #blog, #bonuses { padding: 3.5rem 1.5rem; }
+    .stats { padding: 2rem 1.5rem; }
     footer { flex-direction: column; text-align: center; }
+  }
+  @media (max-width: 480px) {
+    nav { display: none; }
+    header { justify-content: center; }
+    .logo { margin-bottom: 0; }
+    .puzzle-board { gap: 1px; }
+    .puzzle-piece-pool { width: 60px; height: 60px; }
   }
 </style>
 </head>
 <body>
 
-
 <!-- Background orbs -->
 <div style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden;">
-  <div style="position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(180,0,255,0.4),transparent 70%);top:-100px;left:-100px;animation:orbFloat1 8s ease-in-out infinite;"></div>
-  <div style="position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(255,210,0,0.35),transparent 70%);top:30%;right:-80px;animation:orbFloat2 10s ease-in-out infinite;"></div>
-  <div style="position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(130,0,200,0.35),transparent 70%);bottom:10%;left:20%;animation:orbFloat3 12s ease-in-out infinite;"></div>
-  <div style="position:absolute;width:350px;height:350px;background:radial-gradient(circle,rgba(255,180,0,0.3),transparent 70%);bottom:30%;right:10%;animation:orbFloat1 9s ease-in-out infinite reverse;"></div>
+  <div style="position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(168,85,247,0.4),transparent 70%);top:-100px;left:-100px;animation:orbFloat1 8s ease-in-out infinite;"></div>
+  <div style="position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(236,72,153,0.35),transparent 70%);top:30%;right:-80px;animation:orbFloat2 10s ease-in-out infinite;"></div>
+  <div style="position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(123,47,190,0.35),transparent 70%);bottom:10%;left:20%;animation:orbFloat3 12s ease-in-out infinite;"></div>
+  <div style="position:absolute;width:350px;height:350px;background:radial-gradient(circle,rgba(249,115,22,0.3),transparent 70%);bottom:30%;right:10%;animation:orbFloat1 9s ease-in-out infinite reverse;"></div>
 </div>
-<div class="cursor" id="cursor" style="left: -8px; top: 246px;"></div>
+<div class="cursor" id="cursor"></div>
 
 <!-- HEADER -->
 <header>
-  <div class="logo">Английский<span>с</span>Татьяной</div>
+  <a href="#" class="logo">Английский<span>с</span>Татьяной</a>
   <nav>
-    <a href="file:///C:/Users/%D0%9F%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C/Desktop/%D0%BA%D1%83%D1%80%D1%81%20%D0%98%D0%98/%D0%B2%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B0%20%D1%80%D0%B5%D0%BF%D0%B5%D1%82%D0%B8%D1%82%D0%BE%D1%80%D0%B0/%D1%81%D0%B0%D0%B9%D1%82.html#services">Услуги</a>
-    <a href="file:///C:/Users/%D0%9F%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C/Desktop/%D0%BA%D1%83%D1%80%D1%81%20%D0%98%D0%98/%D0%B2%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B0%20%D1%80%D0%B5%D0%BF%D0%B5%D1%82%D0%B8%D1%82%D0%BE%D1%80%D0%B0/%D1%81%D0%B0%D0%B9%D1%82.html#about">Обо мне</a>
-    <a href="file:///C:/Users/%D0%9F%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C/Desktop/%D0%BA%D1%83%D1%80%D1%81%20%D0%98%D0%98/%D0%B2%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B0%20%D1%80%D0%B5%D0%BF%D0%B5%D1%82%D0%B8%D1%82%D0%BE%D1%80%D0%B0/%D1%81%D0%B0%D0%B9%D1%82.html#reviews">Отзывы</a>
-    <a href="file:///C:/Users/%D0%9F%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C/Desktop/%D0%BA%D1%83%D1%80%D1%81%20%D0%98%D0%98/%D0%B2%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B0%20%D1%80%D0%B5%D0%BF%D0%B5%D1%82%D0%B8%D1%82%D0%BE%D1%80%D0%B0/%D1%81%D0%B0%D0%B9%D1%82.html#contact" class="nav-cta">Записаться</a>
+    <a href="#about">Обо мне</a>
+    <a href="#courses">Курсы</a>
+    <a href="#pricing">Цены</a>
+    <a href="#blog">Блог</a>
+    <a href="#bonuses">Бонусы</a>
+    <a href="#contact" class="nav-cta">Контакты</a>
   </nav>
 </header>
 
@@ -640,171 +210,266 @@
 <section class="hero">
   <div class="hero-left">
     <div class="hero-badge">🎓 Репетитор · IELTS · TOEFL · Разговорный</div>
-    <h1>
-      Заговори<br>
-      на <span class="accent-coral">английском</span><br>
-      <span class="accent-sky">свободно</span>
-    </h1>
+    <h1>Заговори<br>на <span class="accent-coral">английском</span><br><span class="accent-sky">свободно</span></h1>
     <p>Индивидуальные уроки с живым преподавателем. Только эффективные методики, интересные темы и реальный результат.</p>
     <div class="hero-buttons">
-      <a href="file:///C:/Users/%D0%9F%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C/Desktop/%D0%BA%D1%83%D1%80%D1%81%20%D0%98%D0%98/%D0%B2%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B0%20%D1%80%D0%B5%D0%BF%D0%B5%D1%82%D0%B8%D1%82%D0%BE%D1%80%D0%B0/%D1%81%D0%B0%D0%B9%D1%82.html#contact" class="btn-primary">Пробный урок бесплатно</a>
-      <a href="file:///C:/Users/%D0%9F%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C/Desktop/%D0%BA%D1%83%D1%80%D1%81%20%D0%98%D0%98/%D0%B2%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B0%20%D1%80%D0%B5%D0%BF%D0%B5%D1%82%D0%B8%D1%82%D0%BE%D1%80%D0%B0/%D1%81%D0%B0%D0%B9%D1%82.html#services" class="btn-secondary">Узнать подробнее</a>
+      <a href="#contact" class="btn-primary">Пробный урок бесплатно</a>
+      <a href="#courses" class="btn-secondary">Узнать подробнее</a>
     </div>
   </div>
   <div class="hero-right">
-    <div class="hero-photo">
-      <div class="hero-photo-placeholder">👩‍🏫</div>
-    </div>
+    <div class="hero-photo"><img src="3.png" alt="Татьяна - преподаватель английского"></div>
     <div class="floating-tag tag1">🇬🇧 IELTS 8.0</div>
-    <div class="floating-tag tag2">✨ 200+ учеников</div>
-    <div class="floating-tag tag3">🚀 +1 уровень</div>
+    <div class="floating-tag tag2">✨ 20 лет опыта</div>
+    <div class="floating-tag tag3">🚀 CAE · CELTA</div>
   </div>
 </section>
 
 <!-- STATS -->
 <section class="stats">
-  <div class="stat-item reveal visible" style="transition-delay: 0s;">
-    <div class="stat-num">10+</div>
-    <div class="stat-label">лет опыта преподавания</div>
-  </div>
-  <div class="stat-item reveal visible" style="transition-delay: 0.05s;">
-    <div class="stat-num">200+</div>
-    <div class="stat-label">довольных учеников</div>
-  </div>
-  <div class="stat-item reveal visible" style="transition-delay: 0.1s;">
-    <div class="stat-num">98%</div>
-    <div class="stat-label">рекомендуют знакомым</div>
-  </div>
-  <div class="stat-item reveal visible" style="transition-delay: 0s;">
-    <div class="stat-num">C2</div>
-    <div class="stat-label">уровень владения языком</div>
-  </div>
+  <div class="stat-item"><div class="stat-num">20+</div><div class="stat-label">лет опыта</div></div>
+  <div class="stat-item"><div class="stat-num">IELTS 8</div><div class="stat-label">мой балл</div></div>
+  <div class="stat-item"><div class="stat-num">CAE</div><div class="stat-label">сертификат</div></div>
+  <div class="stat-item"><div class="stat-num">CELTA</div><div class="stat-label">квалификация</div></div>
 </section>
 
-<!-- SERVICES -->
-<section class="section" id="services">
-  <div class="section-header reveal visible" style="transition-delay: 0s;">
-    <div class="section-tag">Программы</div>
-    <div class="section-title">Что я предлагаю</div>
-  </div>
-  <div class="services-grid">
-    <div class="service-card reveal visible" style="transition-delay: 0s;">
-      <span class="service-icon">💬</span>
-      <h3>Разговорный клуб</h3>
-      <p class="service-desc">Практика живого общения, работа с живым языком. Темы из реальной жизни.</p>
-      <div class="service-price">800 ₽ <span>/ 60 мин</span></div>
-    </div>
-    <div class="service-card featured reveal visible" style="transition-delay: 0.05s;">
-      <span class="service-icon">📚</span>
-      <h3>Индивидуальный курс</h3>
-      <p class="service-desc">Программа, разработанная лично под ваши потребности</p>
-      <div class="service-price">2000 ₽ <span>/ 60 мин</span></div>
-    </div>
-    <div class="service-card reveal visible" style="transition-delay: 0s;">
-      <span class="service-icon">🎯</span>
-      <h3>Подготовка к IELTS/TOEFL/Кембриджским экзаменам</h3>
-      <p class="service-desc">Стратегии сдачи, отработка всех аспектов. Средний балл моих учеников — 6.0 - 7.5 по IELTS.</p>
-      <div class="service-price">2 300 ₽ <span>/ 60 мин</span></div>
-    </div>
-    <div class="service-card reveal visible" style="transition-delay: 0.05s;">
-      <span class="service-icon">💼</span>
-      <h3>Бизнес-английский</h3>
-      <p class="service-desc">Переговоры, переписка, презентации. Для тех, кто хочет расти в международной компании.</p>
-      <div class="service-price">2000 ₽ <span>/ 60 мин</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY ME -->
+<!-- ABOUT -->
 <section class="why-section" id="about">
-  <div class="reveal visible" style="transition-delay: 0s;">
-    <div class="section-tag" style="background: var(--lime);">Обо мне</div>
-    <div class="section-title">Почему выбирают меня</div>
+  <div style="text-align:center; margin-bottom:2rem;">
+    <div style="display:inline-block; background:var(--orange); color:var(--navy); padding:5px 15px; border-radius:50px; font-weight:bold; font-size:12px; text-transform:uppercase; letter-spacing:1px; margin-bottom:15px;">Обо мне</div>
+    <h2 style="font-family:'Fraunces',serif; font-size:48px; color:#fff; margin:0;">Привет, друзья!</h2>
   </div>
-  <div class="why-grid">
-    <div class="why-card reveal visible" style="transition-delay: 0s;">
-      <div class="why-num">01</div>
-      <h3>Живой язык, не учебник</h3>
-      <p>Учу тому английскому, на котором говорят в жизни, в сериалах и на работе.</p>
+  <div style="max-width:800px; margin:0 auto; background:rgba(255,255,255,0.1); padding:2rem; border-radius:20px; border:2px solid rgba(255,255,255,0.2);">
+    <p style="font-size:1.05rem; line-height:1.7; color:rgba(255,255,255,0.9); margin-bottom:1rem;">Меня зовут Татьяна, и я профессиональный преподаватель английского, лингвист. Я уже примерно 20 лет преподаю бизнес английский, общий английский, готовлю к международным экзаменам и к интервью на английском.</p>
+    <p style="font-size:1.05rem; line-height:1.7; color:rgba(255,255,255,0.9); margin-bottom:1rem;">На занятиях мы очень много говорим, слушаем, читаем, пишем и обсуждаем. Я гибко подхожу к вашей задаче, чтобы решить ее максимально эффективно.</p>
+    <p style="font-size:1.05rem; line-height:1.7; color:rgba(255,255,255,0.9); margin-bottom:1.5rem;">Так что, давайте погружаться в мир английского вместе и получать не только знания, но и удовольствие.</p>
+    <div style="display:flex; flex-wrap:wrap; gap:0.8rem;">
+      <span style="background:rgba(249,115,22,0.2); color:#fff; padding:0.4rem 1rem; border-radius:50px; font-weight:700; font-size:0.85rem; border:1px solid rgba(255,255,255,0.3);">🎯 IELTS Band 8</span>
+      <span style="background:rgba(249,115,22,0.2); color:#fff; padding:0.4rem 1rem; border-radius:50px; font-weight:700; font-size:0.85rem; border:1px solid rgba(255,255,255,0.3);">🏆 CAE</span>
+      <span style="background:rgba(249,115,22,0.2); color:#fff; padding:0.4rem 1rem; border-radius:50px; font-weight:700; font-size:0.85rem; border:1px solid rgba(255,255,255,0.3);">📚 CELTA</span>
+      <span style="background:rgba(249,115,22,0.2); color:#fff; padding:0.4rem 1rem; border-radius:50px; font-weight:700; font-size:0.85rem; border:1px solid rgba(255,255,255,0.3);">👩‍🏫 20 лет опыта</span>
     </div>
-    <div class="why-card reveal visible" style="transition-delay: 0.05s;">
-      <div class="why-num">02</div>
-      <h3>Индивидуальный подход</h3>
-      <p>Каждый урок планируется под вас: ваш темп, ваши цели, ваши интересы.</p>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section id="courses" style="padding:80px 20px !important; background:#2D0055 !important; min-height:600px; position:relative; z-index:10;">
+  <div style="text-align:center; margin-bottom:40px;">
+    <div style="display:inline-block; background:#F97316; color:#1A0035; padding:5px 15px; border-radius:50px; font-weight:bold; text-transform:uppercase; font-size:12px; letter-spacing:1px; margin-bottom:15px;">Программы</div>
+    <h2 style="font-family:'Fraunces',serif; font-size:48px; color:#ffffff !important; margin:0; line-height:1.1;">Мои курсы</h2>
+  </div>
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:20px; max-width:1200px; margin:0 auto;">
+    <div style="background:rgba(255,255,255,0.15); border:2px solid #F97316; border-radius:20px; padding:30px; text-align:left;">
+      <div style="font-size:40px; margin-bottom:15px;">💬</div>
+      <h3 style="color:#ffffff !important; font-size:24px; margin:0 0 10px 0;">Общий английский</h3>
+      <p style="color:#ffffff !important; opacity:0.9; line-height:1.5;">Развитие всех языковых навыков: говорение, аудирование, чтение, письмо.</p>
     </div>
-    <div class="why-card reveal visible" style="transition-delay: 0.1s;">
-      <div class="why-num">03</div>
-      <h3>Онлайн — удобно</h3>
-      <p>Онлайн платформы Уроки в любой точке мира в удобное время.</p>
+    <div style="background:rgba(249,115,22,0.2); border:2px solid #FFD700; border-radius:20px; padding:30px; text-align:left;">
+      <div style="font-size:40px; margin-bottom:15px;">💼</div>
+      <h3 style="color:#FFD700 !important; font-size:24px; margin:0 0 10px 0;">Бизнес-английский</h3>
+      <p style="color:#ffffff !important; opacity:0.9; line-height:1.5;">Деловая переписка, презентации, переговоры. Английский для карьеры.</p>
     </div>
-    <div class="why-card reveal visible" style="transition-delay: 0.15s;">
-      <div class="why-num">04</div>
-      <h3>Гарантия прогресса</h3>
-      <p>Ваш прогресс - наша цель.</p>
+    <div style="background:rgba(255,255,255,0.15); border:2px solid #F97316; border-radius:20px; padding:30px; text-align:left;">
+      <div style="font-size:40px; margin-bottom:15px;">🎯</div>
+      <h3 style="color:#ffffff !important; font-size:24px; margin:0 0 10px 0;">Международные экзамены</h3>
+      <p style="color:#ffffff !important; opacity:0.9; line-height:1.5;">Стратегии сдачи, отработка всех аспектов: IELTS, TOEFL, Cambridge.</p>
     </div>
+    <div style="background:rgba(255,255,255,0.15); border:2px solid #F97316; border-radius:20px; padding:30px; text-align:left;">
+      <div style="font-size:40px; margin-bottom:15px;">🎤</div>
+      <h3 style="color:#ffffff !important; font-size:24px; margin:0 0 10px 0;">Собеседование</h3>
+      <p style="color:#ffffff !important; opacity:0.9; line-height:1.5;">Отработка вопросов, самопрезентация, профессиональная лексика.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="padding:80px 20px !important; background:#3A0066 !important; min-height:600px; position:relative; z-index:10;">
+  <div style="text-align:center; margin-bottom:40px;">
+    <div style="display:inline-block; background:#F97316; color:#1A0035; padding:5px 15px; border-radius:50px; font-weight:bold; text-transform:uppercase; font-size:12px; letter-spacing:1px; margin-bottom:15px;">Стоимость</div>
+    <h2 style="font-family:'Fraunces',serif; font-size:48px; color:#ffffff !important; margin:0; line-height:1.1;">Цены на занятия</h2>
+  </div>
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:20px; max-width:1200px; margin:0 auto;">
+    <div style="background:rgba(255,255,255,0.15); border:2px solid #F97316; border-radius:20px; padding:30px; text-align:left;">
+      <div style="font-size:40px; margin-bottom:15px;">🌍</div>
+      <h3 style="color:#ffffff !important; font-size:24px; margin:0 0 10px 0;">Общий английский</h3>
+      <p style="color:#ffffff !important; opacity:0.9; line-height:1.5;">Для повседневного общения, путешествий и общего развития.</p>
+      <div style="font-family:'Fraunces',serif; font-size:28px; font-weight:900; color:#F97316 !important; margin-top:15px;">2000 ₽ <span style="font-family:'Inter Tight',sans-serif; font-size:14px; opacity:0.8;">/ 60 мин</span></div>
+    </div>
+    <div style="background:rgba(255,255,255,0.15); border:2px solid #F97316; border-radius:20px; padding:30px; text-align:left;">
+      <div style="font-size:40px; margin-bottom:15px;">💼</div>
+      <h3 style="color:#ffffff !important; font-size:24px; margin:0 0 10px 0;">Бизнес-английский</h3>
+      <p style="color:#ffffff !important; opacity:0.9; line-height:1.5;">Деловая коммуникация, переговоры, презентации.</p>
+      <div style="font-family:'Fraunces',serif; font-size:28px; font-weight:900; color:#F97316 !important; margin-top:15px;">2000 ₽ <span style="font-family:'Inter Tight',sans-serif; font-size:14px; opacity:0.8;">/ 60 мин</span></div>
+    </div>
+    <div style="background:rgba(255,255,255,0.15); border:2px solid #F97316; border-radius:20px; padding:30px; text-align:left;">
+      <div style="font-size:40px; margin-bottom:15px;">🎤</div>
+      <h3 style="color:#ffffff !important; font-size:24px; margin:0 0 10px 0;">Подготовка к собеседованию</h3>
+      <p style="color:#ffffff !important; opacity:0.9; line-height:1.5;">Отработка вопросов, самопрезентация, лексика для интервью.</p>
+      <div style="font-family:'Fraunces',serif; font-size:28px; font-weight:900; color:#F97316 !important; margin-top:15px;">2000 ₽ <span style="font-family:'Inter Tight',sans-serif; font-size:14px; opacity:0.8;">/ 60 мин</span></div>
+    </div>
+    <div style="background:rgba(249,115,22,0.2); border:2px solid #FFD700; border-radius:20px; padding:30px; text-align:left;">
+      <div style="font-size:40px; margin-bottom:15px;">🏆</div>
+      <h3 style="color:#FFD700 !important; font-size:24px; margin:0 0 10px 0;">Подготовка к экзаменам</h3>
+      <p style="color:#ffffff !important; opacity:0.9; line-height:1.5;">Интенсивная подготовка к IELTS, TOEFL, Cambridge с гарантией результата.</p>
+      <div style="font-family:'Fraunces',serif; font-size:28px; font-weight:900; color:#FFD700 !important; margin-top:15px;">3000 ₽ <span style="font-family:'Inter Tight',sans-serif; font-size:14px; opacity:0.8;">/ 60 мин</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div style="text-align:center; margin-bottom:2rem;">
+    <div style="display:inline-block; background:linear-gradient(135deg, var(--purple), var(--pink)); color:#fff; padding:5px 15px; border-radius:50px; font-weight:bold; font-size:12px; text-transform:uppercase; letter-spacing:1px; margin-bottom:15px;">Блог</div>
+    <h2 style="font-family:'Fraunces',serif; font-size:48px; color:#fff; margin:0;">Полезное об английском</h2>
+  </div>
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.8rem; max-width:1200px; margin:0 auto;">
+    <article style="background:rgba(255,255,255,0.92); border-radius:20px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,0.2);">
+      <div style="height:180px; background:linear-gradient(135deg, var(--purple), var(--pink)); display:flex; align-items:center; justify-content:center; color:white; font-size:3rem;">📝</div>
+      <div style="padding:1.5rem;">
+        <span style="display:inline-block; background:rgba(249,115,22,0.15); color:var(--orange); font-weight:700; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.05em; padding:0.3rem 0.8rem; border-radius:50px; margin-bottom:0.8rem;">Грамматика</span>
+        <h3 style="font-family:'Fraunces',serif; font-size:1.3rem; font-weight:700; color:var(--navy); margin-bottom:0.6rem;">5 ошибок в временах</h3>
+        <p style="color:#555; font-size:0.9rem; line-height:1.6; margin-bottom:1rem;">Разбираем самые частые ловушки в Present Perfect и Past Simple.</p>
+        <a href="#contact" style="color:var(--purple); font-weight:700; font-size:0.9rem; text-decoration:none;">Читать далее →</a>
+      </div>
+    </article>
+    <article style="background:rgba(255,255,255,0.92); border-radius:20px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,0.2);">
+      <div style="height:180px; background:linear-gradient(135deg, var(--purple), var(--pink)); display:flex; align-items:center; justify-content:center; color:white; font-size:3rem;">🎬</div>
+      <div style="padding:1.5rem;">
+        <span style="display:inline-block; background:rgba(249,115,22,0.15); color:var(--orange); font-weight:700; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.05em; padding:0.3rem 0.8rem; border-radius:50px; margin-bottom:0.8rem;">Культура</span>
+        <h3 style="font-family:'Fraunces',serif; font-size:1.3rem; font-weight:700; color:var(--navy); margin-bottom:0.6rem;">Сленг из сериалов</h3>
+        <p style="color:#555; font-size:0.9rem; line-height:1.6; margin-bottom:1rem;">От «Friends» до «Stranger Things»: учим живой язык.</p>
+        <a href="#contact" style="color:var(--purple); font-weight:700; font-size:0.9rem; text-decoration:none;">Читать далее →</a>
+      </div>
+    </article>
+    <article style="background:rgba(255,255,255,0.92); border-radius:20px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,0.2);">
+      <div style="height:180px; background:linear-gradient(135deg, var(--purple), var(--pink)); display:flex; align-items:center; justify-content:center; color:white; font-size:3rem;">✈️</div>
+      <div style="padding:1.5rem;">
+        <span style="display:inline-block; background:rgba(249,115,22,0.15); color:var(--orange); font-weight:700; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.05em; padding:0.3rem 0.8rem; border-radius:50px; margin-bottom:0.8rem;">Путешествия</span>
+        <h3 style="font-family:'Fraunces',serif; font-size:1.3rem; font-weight:700; color:var(--navy); margin-bottom:0.6rem;">Английский в аэропорту</h3>
+        <p style="color:#555; font-size:0.9rem; line-height:1.6; margin-bottom:1rem;">Чек-лист выражений для регистрации и общения с экипажем.</p>
+        <a href="#contact" style="color:var(--purple); font-weight:700; font-size:0.9rem; text-decoration:none;">Читать далее →</a>
+      </div>
+    </article>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
 <section class="testimonials" id="reviews">
-  <div class="reveal visible" style="transition-delay: 0s;">
-    <div class="section-tag" style="background: var(--coral); color: #fff;">Отзывы</div>
-    <div class="section-title">Что говорят ученики</div>
+  <div style="text-align:center; margin-bottom:2rem;">
+    <div style="display:inline-block; background:var(--pink); color:#fff; padding:5px 15px; border-radius:50px; font-weight:bold; font-size:12px; text-transform:uppercase; letter-spacing:1px; margin-bottom:15px;">Отзывы</div>
+    <h2 style="font-family:'Fraunces',serif; font-size:48px; color:#fff; margin:0;">Что говорят ученики</h2>
   </div>
-  <div class="reviews-grid">
-    <div class="review-card reveal visible" style="transition-delay: 0s;">
-      <div class="review-stars">⭐⭐⭐⭐⭐</div>
-      <p class="review-text">«Занималась с Татьяной 8 месяцев и сдала IELTS на 7.5! Очень методичный и вдохновляющий преподаватель. Объясняет сложное просто.»</p>
-      <div class="review-author">
-        <div class="author-avatar">👩</div>
-        <div>
-          <div class="author-name">Мария К.</div>
-          <div class="author-sub">Получила визу в Канаду</div>
-        </div>
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem; max-width:1200px; margin:0 auto;">
+    <div style="background:rgba(255,255,255,0.92); border-radius:20px; padding:1.8rem; box-shadow:0 8px 32px rgba(0,0,0,0.2);">
+      <div style="font-size:1.1rem; margin-bottom:0.9rem;">⭐⭐⭐⭐⭐</div>
+      <p style="font-size:0.9rem; line-height:1.6; color:#333; margin-bottom:1.3rem; font-style:italic;">«Занималась 8 месяцев и сдала IELTS на 7.5! Методичный и вдохновляющий преподаватель.»</p>
+      <div style="display:flex; align-items:center; gap:0.8rem;">
+        <div style="width:42px; height:42px; border-radius:50%; border:2px solid var(--navy); display:flex; align-items:center; justify-content:center; font-size:1.3rem; background:var(--pink-light);">👩</div>
+        <div><div style="font-weight:700; font-size:0.85rem; color:var(--navy);">Мария К.</div><div style="font-size:0.75rem; color:#666;">Виза в Канаду</div></div>
       </div>
     </div>
-    <div class="review-card reveal visible" style="transition-delay: 0.05s;">
-      <div class="review-stars">⭐⭐⭐⭐⭐</div>
-      <p class="review-text">«Начинал с A2, за полгода вышел на уверенный B2. Теперь провожу переговоры с иностранными партнёрами без переводчика.»</p>
-      <div class="review-author">
-        <div class="author-avatar" style="background: var(--lime);">👨</div>
-        <div>
-          <div class="author-name">Дмитрий В.</div>
-          <div class="author-sub">Руководитель IT-компании</div>
-        </div>
+    <div style="background:rgba(255,255,255,0.92); border-radius:20px; padding:1.8rem; box-shadow:0 8px 32px rgba(0,0,0,0.2);">
+      <div style="font-size:1.1rem; margin-bottom:0.9rem;">⭐⭐⭐⭐⭐</div>
+      <p style="font-size:0.9rem; line-height:1.6; color:#333; margin-bottom:1.3rem; font-style:italic;">«С A2 за полгода вышел на B2. Теперь провожу переговоры без переводчика.»</p>
+      <div style="display:flex; align-items:center; gap:0.8rem;">
+        <div style="width:42px; height:42px; border-radius:50%; border:2px solid var(--navy); display:flex; align-items:center; justify-content:center; font-size:1.3rem; background:var(--orange);">👨</div>
+        <div><div style="font-weight:700; font-size:0.85rem; color:var(--navy);">Дмитрий В.</div><div style="font-size:0.75rem; color:#666;">IT-руководитель</div></div>
       </div>
     </div>
-    <div class="review-card reveal visible" style="transition-delay: 0s;">
-      <div class="review-stars">⭐⭐⭐⭐⭐</div>
-      <p class="review-text">«Наконец-то нашла преподавателя, с которым не стыдно ошибаться. Каждый урок — это удовольствие, а не стресс.»</p>
-      <div class="review-author">
-        <div class="author-avatar" style="background: var(--coral);">👩</div>
-        <div>
-          <div class="author-name">Светлана Р.</div>
-          <div class="author-sub">Студентка, разговорный курс</div>
-        </div>
+    <div style="background:rgba(255,255,255,0.92); border-radius:20px; padding:1.8rem; box-shadow:0 8px 32px rgba(0,0,0,0.2);">
+      <div style="font-size:1.1rem; margin-bottom:0.9rem;">⭐⭐⭐⭐⭐</div>
+      <p style="font-size:0.9rem; line-height:1.6; color:#333; margin-bottom:1.3rem; font-style:italic;">«Наконец-то преподаватель, с которым не стыдно ошибаться. Урок — удовольствие!»</p>
+      <div style="display:flex; align-items:center; gap:0.8rem;">
+        <div style="width:42px; height:42px; border-radius:50%; border:2px solid var(--navy); display:flex; align-items:center; justify-content:center; font-size:1.3rem; background:var(--pink);">👩</div>
+        <div><div style="font-weight:700; font-size:0.85rem; color:var(--navy);">Светлана Р.</div><div style="font-size:0.75rem; color:#666;">Разговорный курс</div></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ✅ БОНУСЫ - ПАЗЗЛ 3×3 С ПЕРЕТАСКИВАНИЕМ -->
+<section id="bonuses" style="padding:80px 20px !important; background:linear-gradient(135deg, #4A0080 0%, #7B2FBE 50%, #EC4899 100%) !important; position:relative; z-index:10;">
+  
+  <div style="text-align:center; margin-bottom:40px; max-width:700px; margin-left:auto; margin-right:auto;">
+    <div style="display:inline-block; background:linear-gradient(135deg, #F97316, #FB923C); color:#1A0035; padding:5px 20px; border-radius:50px; font-weight:bold; font-size:12px; text-transform:uppercase; letter-spacing:1px; margin-bottom:15px;">🎁 Special Offer</div>
+    <h2 style="font-family:'Fraunces',serif; font-size:clamp(2rem,5vw,3rem); color:#ffffff !important; margin:0 0 15px 0; line-height:1.2;">Собери паззл и получи бонус!</h2>
+    <p style="color:rgba(255,255,255,0.9); font-size:1rem; line-height:1.6;">Перетащи все 9 кусочков на свои места — и открой персональный подарок</p>
+  </div>
+
+  <!-- Puzzle Game Container -->
+  <div class="puzzle-container" id="puzzleContainer">
+    <div class="puzzle-instructions">
+      <p>🧩 Перетащи каждый кусочек на правильное место</p>
+    </div>
+    
+    <div class="puzzle-progress" id="puzzleProgress">
+      <div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div>
+      <div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div>
+      <div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div>
+    </div>
+
+    <div class="puzzle-board" id="puzzleBoard"></div>
+    <div class="puzzle-pieces-pool" id="puzzlePool"></div>
+
+    <!-- Complete Overlay -->
+    <div class="puzzle-complete-overlay" id="puzzleComplete">
+      <div class="puzzle-complete-icon">🎉</div>
+      <div class="puzzle-complete-title">Поздравляем!</div>
+      <div class="puzzle-complete-text">Вы собрали паззл! Нажмите кнопку, чтобы открыть ваш бонус.</div>
+      <button class="puzzle-claim-btn" onclick="claimBonus()">Открыть бонус</button>
+    </div>
+  </div>
+
+  <!-- Revealed Bonus (shown after puzzle complete) -->
+  <div class="bonus-revealed" id="revealedBonus">
+    <div class="bonus-revealed-card">
+      <div class="bonus-revealed-image"><img id="revealedBonusImage" src="" alt="Бонус"></div>
+      <div class="bonus-revealed-content">
+        <span class="bonus-revealed-badge" id="revealedBonusBadge">Ваш бонус</span>
+        <h2 class="bonus-revealed-title" id="revealedBonusTitle">Название бонуса</h2>
+        <p class="bonus-revealed-desc" id="revealedBonusDesc">Описание бонуса</p>
+        <a href="#contact" class="btn-primary" style="display: inline-block;">Получить бонус</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Already Claimed Message -->
+  <div id="alreadyClaimed" style="display:none; max-width:500px; margin:30px auto 0 auto; background:rgba(255,255,255,0.1); border:2px solid rgba(255,255,255,0.3); border-radius:20px; padding:25px; text-align:center;">
+    <div style="font-size:40px; margin-bottom:15px;">✅</div>
+    <h3 style="font-family:'Fraunces',serif; font-size:1.3rem; color:#fff; margin:0 0 10px 0;">Бонус уже активирован!</h3>
+    <p style="color:rgba(255,255,255,0.85); font-size:0.9rem; line-height:1.6; margin:0;">Вы уже собрали паззл с этого устройства. Напишите мне в мессенджер, чтобы получить подарок!</p>
+    <div style="margin-top:15px;">
+      <a href="https://t.me/@tanagoria" style="color:#fff; font-weight:700; text-decoration:none; margin:0 10px;">✈️ Telegram</a>
+      <a href="https://vk.com/tatiana_gorshkova" style="color:#fff; font-weight:700; text-decoration:none; margin:0 10px;">💬 VK</a>
+    </div>
+  </div>
+
+</section>
+
 <!-- CONTACT -->
 <section class="contact-section" id="contact">
-  <div class="reveal visible" style="transition-delay: 0s;">
-    <div class="section-tag">Запись</div>
-    <div class="section-title">Готовы начать?<br>Первый урок бесплатно 🎉</div>
-    <p class="contact-sub">Напишите мне в любой мессенджер, и мы выберем удобное время для пробного занятия.</p>
+  <div>
+    <div style="display:inline-block; background:rgba(255,255,255,0.3); color:#fff; padding:5px 15px; border-radius:50px; font-weight:bold; font-size:12px; text-transform:uppercase; letter-spacing:1px; margin-bottom:15px;">Запись</div>
+    <h2 style="font-family:'Fraunces',serif; font-size:clamp(2.2rem,5vw,3.5rem); margin-bottom:1rem; color:#fff;">Готовы начать?<br>Первый урок бесплатно 🎉</h2>
+    <p style="font-size:1rem; color:rgba(255,255,255,0.8); margin-bottom:2.5rem; max-width:500px; margin-left:auto; margin-right:auto;">Напишите мне в любой мессенджер, и мы выберем удобное время.</p>
   </div>
-  <div class="contact-links reveal visible" style="transition-delay: 0.1s;">
-    <a href="https://t.me/@tanagoria" class="contact-link tg">
-      ✈️ Telegram
+  <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+    
+    <!-- 🔵 VK - Синяя кнопка -->
+    <a href="https://vk.com/tatiana_gorshkova" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.8rem 1.8rem; border-radius:50px; font-weight:700; font-size:0.9rem; text-decoration:none; border:2.5px solid #005CCB; box-shadow:4px 4px 0 #005CCB; color:#fff; background:#0077FF; transition:all 0.2s;">
+      <span style="font-size:1.1rem;">💙</span> ВКонтакте
     </a>
-    <a href="https://vk.com/tatiana_gorshkova" class="contact-link wa">
-      💬 VK
+    
+    <!-- ✈️ Telegram -->
+    <a href="https://t.me/tanagoria" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.8rem 1.8rem; border-radius:50px; font-weight:700; font-size:0.9rem; text-decoration:none; border:2.5px solid #1E88C7; box-shadow:4px 4px 0 #1E88C7; color:#fff; background:#29B6F6; transition:all 0.2s;">
+      <span style="font-size:1.1rem;">✈️</span> Telegram
     </a>
-    <a href="tel:+79129783436" class="contact-link phone">
-      📞 Позвонить
+    
+    <!-- 🟣 Max.ru -->
+    <a href="https://max.ru/u/f9LHodD0cOLtedaP2RmusP5fxnfYe-ZWtV44u2AgxUEWlJtQHHxf1lbUNOY" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.8rem 1.8rem; border-radius:50px; font-weight:700; font-size:0.9rem; text-decoration:none; border:2.5px solid #7B2FBE; box-shadow:4px 4px 0 #7B2FBE; color:#fff; background:#9B59B6; transition:all 0.2s;">
+      <span style="font-size:1.1rem;">⭐</span> Max
     </a>
+    
   </div>
 </section>
 
@@ -812,7 +477,7 @@
 <footer>
   <div class="logo">Татьяна<span>.</span>Английский</div>
   <div>© 2024 Все права защищены</div>
-  <div>Татьяна Горшкова · Репетитор английского языка</div>
+  <div>Татьяна Горшкова · Репетитор</div>
 </footer>
 
 <script>
@@ -822,22 +487,259 @@
     cursor.style.left = e.clientX - 10 + 'px';
     cursor.style.top = e.clientY - 10 + 'px';
   });
-  document.querySelectorAll('a, button, .service-card, .why-card, .review-card').forEach(el => {
+  document.querySelectorAll('a, button, .bonus-card, .puzzle-piece, .puzzle-piece-pool').forEach(el => {
     el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
     el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
   });
 
-  // Scroll reveal
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        entry.target.style.transitionDelay = (i * 0.05) + 's';
-        entry.target.classList.add('visible');
+  // Smooth scroll
+  document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
       }
     });
-  }, { threshold: 0.1 });
+  });
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  // ===== PUZZLE GAME LOGIC =====
+  const BONUS_STORAGE_KEY = 'tatiana_puzzle_completed';
+  
+  const bonusOptions = [
+    {
+      id: 1,
+      title: 'Подписка на блог',
+      desc: 'Доступ к закрытому блогу «Английский по фильмам». Разборы сцен, сленг и культурные особенности прямо с экрана.',
+      image: 'https://image.qwenlm.ai/public_source/d567a41f-b809-428c-ab38-4e25b3d7c8ad/195e80d28-407f-4257-83c9-66d73869f50f.png'
+    },
+    {
+      id: 2,
+      title: 'Скидка 10%',
+      desc: 'Специальное предложение на первый месяц обучения. Золотой шанс начать свой путь со скидкой.',
+      image: 'https://image.qwenlm.ai/public_source/d567a41f-b809-428c-ab38-4e25b3d7c8ad/1a66f27d7-a33e-46bf-ad98-62cf24f9cbaf.png'
+    },
+    {
+      id: 3,
+      title: 'Бесплатный урок',
+      desc: 'Персональная встреча с преподавателем. Оцените свой уровень и составьте план обучения бесплатно.',
+      image: 'https://image.qwenlm.ai/public_source/d567a41f-b809-428c-ab38-4e25b3d7c8ad/193503874-1f94-4036-b600-0d2f6c085e6e.png'
+    }
+  ];
+
+  let selectedBonus = null;
+  const gridSize = 3;
+  const totalPieces = gridSize * gridSize;
+  let correctPlacements = 0;
+  let draggedPiece = null;
+
+  // Check if already completed
+  if (localStorage.getItem(BONUS_STORAGE_KEY) === 'true') {
+    document.getElementById('puzzleContainer').style.display = 'none';
+    document.getElementById('revealedBonus').style.display = 'none';
+    document.getElementById('alreadyClaimed').style.display = 'block';
+  } else {
+    initPuzzle();
+  }
+
+  function initPuzzle() {
+    const randomIndex = Math.floor(Math.random() * bonusOptions.length);
+    selectedBonus = bonusOptions[randomIndex];
+    
+    const board = document.getElementById('puzzleBoard');
+    const pool = document.getElementById('puzzlePool');
+    board.innerHTML = '';
+    pool.innerHTML = '';
+
+    // Create drop zones
+    for (let i = 0; i < totalPieces; i++) {
+      const dropZone = document.createElement('div');
+      dropZone.className = 'puzzle-drop-zone puzzle-drop-zone-' + i;
+      dropZone.dataset.index = i;
+      dropZone.addEventListener('dragover', handleDragOver);
+      dropZone.addEventListener('dragleave', handleDragLeave);
+      dropZone.addEventListener('drop', handleDrop);
+      board.appendChild(dropZone);
+    }
+
+    // Create puzzle pieces (shuffled)
+    const pieces = [];
+    for (let i = 0; i < totalPieces; i++) pieces.push(i);
+    shuffleArray(pieces);
+
+    pieces.forEach((pieceIndex, i) => {
+      const piece = document.createElement('div');
+      piece.className = 'puzzle-piece-pool';
+      piece.draggable = true;
+      piece.dataset.correctIndex = pieceIndex;
+      piece.id = 'piece-' + i;
+      
+      const row = Math.floor(pieceIndex / gridSize);
+      const col = pieceIndex % gridSize;
+      const bgPosX = (col / (gridSize - 1)) * 100;
+      const bgPosY = (row / (gridSize - 1)) * 100;
+      
+      piece.style.backgroundImage = `url(${selectedBonus.image})`;
+      piece.style.backgroundPosition = `${bgPosX}% ${bgPosY}%`;
+      piece.style.backgroundSize = '300% 300%';
+      piece.style.backgroundRepeat = 'no-repeat';
+      
+      piece.addEventListener('dragstart', handleDragStart);
+      piece.addEventListener('dragend', handleDragEnd);
+      piece.addEventListener('touchstart', handleTouchStart, { passive: false });
+      piece.addEventListener('touchmove', handleTouchMove, { passive: false });
+      piece.addEventListener('touchend', handleTouchEnd);
+      
+      pool.appendChild(piece);
+    });
+  }
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
+  function handleDragStart(e) {
+    draggedPiece = this;
+    this.classList.add('dragging');
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/plain', this.dataset.correctIndex);
+    const dragImage = this.cloneNode(true);
+    dragImage.style.width = '80px'; dragImage.style.height = '80px';
+    dragImage.style.position = 'absolute';
+    document.body.appendChild(dragImage);
+    e.dataTransfer.setDragImage(dragImage, 40, 40);
+    setTimeout(() => dragImage.remove(), 0);
+  }
+
+  function handleDragEnd() { this.classList.remove('dragging'); draggedPiece = null; }
+  function handleDragOver(e) { e.preventDefault(); e.dataTransfer.dropEffect = 'move'; this.classList.add('drag-over'); }
+  function handleDragLeave() { this.classList.remove('drag-over'); }
+
+  function handleDrop(e) {
+    e.preventDefault();
+    this.classList.remove('drag-over');
+    if (!draggedPiece) return;
+
+    const dropIndex = parseInt(this.dataset.index);
+    const pieceCorrectIndex = parseInt(draggedPiece.dataset.correctIndex);
+
+    if (dropIndex === pieceCorrectIndex && !this.classList.contains('filled')) {
+      this.innerHTML = '';
+      const placedPiece = document.createElement('div');
+      placedPiece.className = 'puzzle-piece correct';
+      placedPiece.style.backgroundImage = draggedPiece.style.backgroundImage;
+      placedPiece.style.backgroundPosition = draggedPiece.style.backgroundPosition;
+      placedPiece.style.backgroundSize = '300% 300%';
+      placedPiece.style.backgroundRepeat = 'no-repeat';
+      placedPiece.style.width = '100%';
+      placedPiece.style.height = '100%';
+      placedPiece.style.position = 'absolute';
+      placedPiece.style.top = '0';
+      placedPiece.style.left = '0';
+      placedPiece.style.borderRadius = '6px';
+      
+      this.appendChild(placedPiece);
+      this.classList.add('filled');
+      draggedPiece.remove();
+      correctPlacements++;
+      updateProgress();
+      
+      if (correctPlacements === totalPieces) puzzleComplete();
+    } else {
+      this.style.animation = 'shake 0.3s ease';
+      setTimeout(() => { this.style.animation = ''; }, 300);
+    }
+  }
+
+  // Touch support
+  let touchPiece = null, touchClone = null;
+  function handleTouchStart(e) {
+    e.preventDefault();
+    touchPiece = this;
+    const touch = e.touches[0];
+    this.classList.add('dragging');
+    touchClone = this.cloneNode(true);
+    touchClone.style.cssText = 'position:fixed;z-index:1000;width:80px;height:80px;pointer-events:none;opacity:0.8;';
+    document.body.appendChild(touchClone);
+    updateTouchClonePosition(touch);
+  }
+  function handleTouchMove(e) { e.preventDefault(); if (touchPiece) updateTouchClonePosition(e.touches[0]); }
+  function updateTouchClonePosition(touch) {
+    if (touchClone) { touchClone.style.left = (touch.clientX - 40) + 'px'; touchClone.style.top = (touch.clientY - 40) + 'px'; }
+  }
+  function handleTouchEnd(e) {
+    if (!touchPiece) return;
+    touchPiece.classList.remove('dragging');
+    if (touchClone) { touchClone.remove(); touchClone = null; }
+    
+    const touch = e.changedTouches[0];
+    const dropZone = document.elementFromPoint(touch.clientX, touch.clientY);
+    
+    if (dropZone && dropZone.classList.contains('puzzle-drop-zone') && !dropZone.classList.contains('filled')) {
+      const dropIndex = parseInt(dropZone.dataset.index);
+      const pieceCorrectIndex = parseInt(touchPiece.dataset.correctIndex);
+      
+      if (dropIndex === pieceCorrectIndex) {
+        dropZone.innerHTML = '';
+        const placedPiece = document.createElement('div');
+        placedPiece.className = 'puzzle-piece correct';
+        placedPiece.style.cssText = `background-image:${touchPiece.style.backgroundImage};background-position:${touchPiece.style.backgroundPosition};background-size:300% 300%;background-repeat:no-repeat;width:100%;height:100%;position:absolute;top:0;left:0;border-radius:6px;`;
+        dropZone.appendChild(placedPiece);
+        dropZone.classList.add('filled');
+        touchPiece.remove();
+        correctPlacements++;
+        updateProgress();
+        if (correctPlacements === totalPieces) puzzleComplete();
+      }
+    }
+    touchPiece = null;
+  }
+
+  function updateProgress() {
+    const dots = document.querySelectorAll('.progress-dot');
+    dots.forEach((dot, i) => dot.classList.toggle('filled', i < correctPlacements));
+  }
+
+  function puzzleComplete() {
+    document.getElementById('puzzleComplete').classList.add('visible');
+    createConfetti();
+  }
+
+  function createConfetti() {
+    const colors = ['#FFE500', '#FF5C5C', '#FF9EF5', '#FFD700', '#4ADE80', '#60A5FA'];
+    for (let i = 0; i < 100; i++) {
+      setTimeout(() => {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.cssText = `position:fixed;width:10px;height:10px;top:-10px;left:${Math.random()*100}vw;background:${colors[Math.floor(Math.random()*colors.length)]};animation:confetti ${2+Math.random()*2}s ease-out forwards;z-index:9999;`;
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 4000);
+      }, i * 30);
+    }
+  }
+
+  function claimBonus() {
+    document.getElementById('puzzleComplete').classList.remove('visible');
+    document.getElementById('revealedBonusImage').src = selectedBonus.image;
+    document.getElementById('revealedBonusTitle').textContent = selectedBonus.title;
+    document.getElementById('revealedBonusDesc').innerHTML = selectedBonus.desc;
+    document.getElementById('revealedBonus').classList.add('visible');
+    localStorage.setItem(BONUS_STORAGE_KEY, 'true');
+    setTimeout(() => document.getElementById('revealedBonus').scrollIntoView({ behavior: 'smooth', block: 'center' }), 500);
+  }
+
+  // Add shake animation style
+  const style = document.createElement('style');
+  style.textContent = `@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }`;
+  document.head.appendChild(style);
+
+  // Initialize puzzle on page load if not already completed
+  if (localStorage.getItem(BONUS_STORAGE_KEY) !== 'true') {
+    document.addEventListener('DOMContentLoaded', initPuzzle);
+  }
 </script>
-
-</body></html>
+</body>
+</html>
